@@ -1,52 +1,68 @@
-npm install
+Responsive app that displays a list of stylized cards for users. To edit a user, click a field in user's card, type in desired change, and click Accept.
 
-To start: npm start
+<h3>Install:</h3>
+    
+    npm install
 
-To run tests: npm test
+<h3>To start:</h3>
+    
+    npm start
 
-To edit a user, click a user field in user's card, type in desired change, and click accept. Can click cancel to cancel.
+<h3>To run tests:</h3>
+    
+    npm test
 
-genUsers()
-generates an array of users where each user is represented as an object literal. Uses faker JavaScript library.
 
-<CardList/>
-Returns <Card/> for each user. Subscribes to store for list of users.
+<h2>App Functionality and Notes</h2>
+<h3>genUsers()</h3>
+Generates an array of users where each user is represented as an object literal. Uses faker JavaScript library.
 
-<Card/>
-Displays user properties and information such as name, email, and address. Returns <CardField/> for each element in displayedFields array. To display a field in card, add it to the displayFields array in src/features/card/displayFields.js.
+<h3>CardList Component</h3>
+Returns Card component for each user. Subscribes to store for list of users.
+
+<h3>Card</h3>
+Displays user properties and information such as name, email, and address. Returns CardField component for each element in displayedFields array. To display a field in card, add it to the displayFields array in src/features/card/displayFields.js.
+
 
 editingField variable keeps track of field being edited.
 
-Memoized to prevent re-rendering all <Card/>’s when updating any single one (see performance below).
+Memoized to prevent re-rendering all Card components when updating any single one (see Performance below).
 
-<CardField/>
+<h3>CardField</h3>
 Displays user property information. For example, if ‘name’ field is passed with value ‘Jerry Lundegard’, displays ‘Jerry Lundegard’. If ‘address’ field is passed with value of ‘123 Cherry Lane’, displays ‘123 Cherry Lane’.
 
-If props.isEditing is true, will render an input component to accept a new value for field. Passes new value and field back to <Card/> component which then dispatches to store to update user property.
+If props.isEditing is true, will render an input component to accept a new value for field. Passes new value and field back to Card component which then dispatches to store to update user property.
 
-<CardFieldIcon/>
-Displays SVG icons for various fields. If field does not have an icon, returns empty <div>.
 
-<UserForm/>
+<h3>CardFieldIcon</h3>
+Displays SVG icons for various fields. If field should not have an icon, returns empty div.
+
+<h3>UserForm</h3>
 Renders a form that accepts information to create a new user. If there are missing required fields, will display a warning.
 
-returnMissingRequiredFields()
-Returns any missing required fields from <UserForm/>.
+  <h3>returnMissingRequiredFields</h3>
+Returns any missing required fields from UserForm component. Used in UserForm component.
 
-createUserObject()
-Takes form data and creates a user object to be dispatched to store.
+  <h3>createUserObject</h3>
+Takes form data and creates a user object to be dispatched to store. Used in UserForm component.
 
-<FormField/>
-Returns <input> for forms.
+<h3>FormField</h3>
+Returns input HTML element for forms.
 
-Performance and Notes:
-Regarding my decision to create a memoized Card component:
-Faster render times when adding new user card.
+  <h2>Performance and Notes:</h2>
+Memoized Card components results in faster render times when adding new user card.
+  
+<h3>Profiler Results Summary</h3>
+(500 cards as initial model):
 
-Profiler Results Summary:
-With 500 cards as initial model (unmemoized): - adding a user/card - ~100ms
-With 500 cards as initial model (memoized): - adding a user/card: - ~1.xxms to < 5ms
 
-Known Issues:
+* Unmemoized
+  * Adding a user and card: ~100ms
 
-1. Cannot edit address fields at the moment.
+
+* Memoized:
+  * Adding a user and card: ~1ms-4ms
+
+
+<h3>Known Issues:</h3>
+- [] Cannot edit address fields at the moment.
