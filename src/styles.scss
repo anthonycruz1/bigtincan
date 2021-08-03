@@ -1,0 +1,10 @@
+@import './app';
+@import './features/card/Card/card';
+@import './features/card/CardField/card-field';
+@import './features/card/CardFieldIcon/card-field-icon';
+@import './features/form/UserForm/user-form';
+
+body {
+  margin: 0;
+  background-color: #e4e4e4;
+}
