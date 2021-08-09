@@ -1,3 +1,4 @@
+// Renders a field for user form
 export default function FormField(props) {
   let label = '';
   for (let i = 0; i < props.label.length; i++) {
