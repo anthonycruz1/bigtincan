@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 import CardField from '../CardField/CardField';
 import displayedFields from '../displayedFields';
 
+// Renders Card component with user information
 const Card = React.memo((props) => {
   const [editingField, setEditingField] = useState('');
   const dispatch = useDispatch();
 
+  // Keeps track of which field in Card is being edited
   function handleEditing(e) {
     const editingField = e.target.getAttribute('data-field');
     setEditingField(editingField);
@@ -16,6 +18,7 @@ const Card = React.memo((props) => {
     setEditingField('');
   }
 
+  // Updates user if changes to field are accepted
   function acceptEdit(e) {
     const editedField = e.target.getAttribute('data-field');
     const newValue = document
