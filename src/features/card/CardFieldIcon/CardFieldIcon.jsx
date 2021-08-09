@@ -1,3 +1,4 @@
+// Renders SVG icon for Card fields or empty div
 export default function CardFieldIcon(props) {
   if (props.icon === 'email') {
     return (
