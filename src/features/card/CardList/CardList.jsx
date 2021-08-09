@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectUsersList } from '../../users/usersSlice';
 import Card from '../Card/Card';
 
+// Renders a Card component for each user in state
 export default function CardList() {
   const users = useSelector(selectUsersList);
 
