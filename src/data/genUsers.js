@@ -1,5 +1,6 @@
 import faker from 'faker';
 
+// Generates array of random users
 export const genUsers = () => {
   const users = [];
   for (let i = 0; i < 16; i++) {
