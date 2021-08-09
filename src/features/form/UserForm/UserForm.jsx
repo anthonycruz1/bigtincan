@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import FormField from '../FormField/FormField';
 
+// Returns array of missing fields that are required. Add required fields to fields parameter
 function returnMissingRequiredFields(
   form,
   fields = ['firstName', 'lastName', 'email']
@@ -13,8 +14,8 @@ function returnMissingRequiredFields(
   });
 }
 
+// Takes current formData from state and returns user
 function createUserObject(form) {
-  // Takes current formData from state and returns user
   const newUser = {};
   form.forEach((entry) => {
     const [key, value] = [entry[0], entry[1]];
@@ -24,6 +25,7 @@ function createUserObject(form) {
   return newUser;
 }
 
+// Renders Form that creates new user
 export default function UserForm() {
   const [formData, setFormData] = useState({
     firstName: '',
