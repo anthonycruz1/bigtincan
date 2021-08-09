@@ -1,6 +1,7 @@
 import React from 'react';
 import CardFieldIcon from '../CardFieldIcon/CardFieldIcon';
 
+// Renders field for Card component
 export default function CardField(props) {
   const [field, value] = [props.value[0], props.value[1]];
   if (props.isEditing)
